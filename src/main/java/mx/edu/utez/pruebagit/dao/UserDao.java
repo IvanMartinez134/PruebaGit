@@ -44,7 +44,7 @@ public class UserDao {
 
     public boolean insert(User user) {
         boolean flag = false;
-        String query = "insert into users (user_name,pass,email) values(?,?,?)";
+        String query = "insert into users (user_name,pass,email) values(?,sha2(?,256),?)";
 
         try {
             Connection con = DatabaseConnectionManager.getConnection();
