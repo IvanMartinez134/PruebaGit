@@ -42,4 +42,24 @@ public class UserDao {
         return u;
     }
 
+    public boolean insert(User user) {
+        boolean flag = false;
+        String query = "insert into users (user_name,pass,email) values(?,?,?)";
+
+        try {
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, user.getUser_name());
+            ps.setString(2, user.getPass());
+            ps.setString(3, user.getEmail());
+            if(ps.executeUpdate() == 1) {
+                flag = true;// si se inserto el dato
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
+
 }
