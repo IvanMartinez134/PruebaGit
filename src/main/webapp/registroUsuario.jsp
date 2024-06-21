@@ -20,6 +20,7 @@
     <input type="email" name="email">
     <br>
     <input type="submit" name="boton">
+    <br>
 </form>
 </body>
 </html>
